@@ -9,11 +9,56 @@ import { criteriaListSchema } from "./data/schema";
 import { PageProps, Criteria } from '@/types';
 
 import { Head, Link, router } from '@inertiajs/react';
+import { TabelKriteria } from "./components/table-kriteria";
+import { ColumnDef } from "@tanstack/react-table";
+import { Button } from "@/components/ui/button";
 
 // Definisikan tipe untuk props halaman ini secara spesifik
 interface IndexPageProps extends PageProps {
     criteria: Criteria[];
 }
+
+const destroy = (id: number) => {
+    if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+        router.delete(route('criteria.destroy', id));
+    }
+};
+
+const kolomKriteria: ColumnDef<Criteria>[] = [
+    {
+        accessorKey: 'id',
+        header: 'ID',
+    },
+    {
+        accessorKey: 'nama',
+        header: 'Nama Kriteria',
+    },
+    {
+        id: 'aksi', // ID unik untuk kolom
+        header: 'Aksi',
+        cell: ({ row }) => {
+            // 'row.original' berisi data lengkap untuk baris ini
+            const kriteria = row.original;
+
+            return (
+                <div className="flex space-x-2">
+                    <Link href={route('criteria.edit', kriteria.id)}>
+                        <Button variant="outline" size="sm">
+                            Edit
+                        </Button>
+                    </Link>
+                    <Button
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => destroy(kriteria.id)}
+                    >
+                        Hapus
+                    </Button>
+                </div>
+            );
+        },
+    },
+];
 
 export default function Index({ auth, criteria }: IndexPageProps) {
     // export default function Criterias() {
@@ -47,7 +92,8 @@ export default function Index({ auth, criteria }: IndexPageProps) {
                         {/* <UsersPrimaryButtons /> */}
                     </div>
                     <div className='-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-x-12 lg:space-y-0'>
-                        <CriteriasTable data={criteriaList} columns={columns} />
+                        {/* <CriteriasTable data={criteriaList} columns={columns} /> */}
+                        <TabelKriteria data={criteriaList} columns={kolomKriteria} />
                     </div>
                 </Main>
                 {/* <div className="py-12">

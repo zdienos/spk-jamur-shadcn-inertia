@@ -1,3 +1,5 @@
+# Mau Buat SPK Kriteria Jamur dengan Metode KNN
+
 # Laravel Shadcn Admin Dashboard
 
 A modern, responsive, and accessible admin dashboard built with Shadcn UI, Laravel, and Vite. This project combines the elegance of Shadcn's UI components with the robustness of Laravel's backend framework, providing a seamless development experience.
@@ -67,12 +69,14 @@ This project is inspired by [Shadcn-admin](https://github.com/satnaing/shadcn-ad
 ```
 
 4. Start the dev
-Frotnedend and Backend server
+   Frotnedend and Backend server
+
 - Start the Vite development server:
 
 ```bash
   pnpm run dev
 ```
+
 - Start the Laravel development server:
 
 ```bash
@@ -88,6 +92,7 @@ This project includes automated CI/CD workflows using GitHub Actions. The workfl
 ### Available Workflows
 
 #### 1. Tests Workflow (`test.yml`)
+
 Automatically runs on every push to the `main` branch and performs:
 
 - **PHP Setup:** Uses PHP 8.2 with required extensions
@@ -97,7 +102,8 @@ Automatically runs on every push to the `main` branch and performs:
 - **Database Setup:** Creates SQLite database for testing
 - **Test Execution:** Runs PHPUnit/Pest tests (unit and feature tests)
 
-#### 2. Deploy Workflow (`deploy.yml`) 
+#### 2. Deploy Workflow (`deploy.yml`)
+
 Automatically deploys to production server on successful pushes to `main` branch:
 
 - **Code Deployment:** Uses rsync to sync code to production server
@@ -113,20 +119,21 @@ For the deployment workflow to work, configure these GitHub repository secrets:
 
 - `PRIVATE_KEY` - SSH private key for server access
 - `SSH_HOST` - Production server hostname/IP
-- `SSH_USER` - SSH username for server access  
+- `SSH_USER` - SSH username for server access
 - `WORK_DIR` - Application directory path on server
 - `DOCKER_DIR` - Docker compose directory path on server
 
 ### Local Development Workflow
 
 1. **Before Committing:**
+
    ```bash
    # Run tests locally
    php artisan test
-   
+
    # Build frontend assets
    pnpm run build
-   
+
    # Check code formatting
    pnpm run lint
    ```
@@ -141,7 +148,7 @@ For the deployment workflow to work, configure these GitHub repository secrets:
 To modify the CI/CD behavior:
 
 - **Test Configuration:** Edit `.github/workflows/test.yml`
-- **Deployment Steps:** Edit `.github/workflows/deploy.yml` 
+- **Deployment Steps:** Edit `.github/workflows/deploy.yml`
 - **Add Quality Checks:** Consider adding code style checks, static analysis, or security scans
 
 ## Roadmap
@@ -157,8 +164,6 @@ Here are some of the planned features for future updates:
 - **Theme & Plugin Manager:** Easily install and manage themes and plugins to extend functionality.
 
 - **File & Media Manager:** A powerful file and media manager for handling uploads and organizing assets.
-
-
 
 ## Author
 

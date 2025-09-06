@@ -40,9 +40,9 @@ export function NavLogo({
                             <Command className="size-4" />
                         </div>
                         <div className="grid flex-1 text-sm leading-tight text-left">
-                            <span className="font-semibold truncate">Laravel Shadcn</span>
+                            <span className="font-semibold truncate"> Pengambilan Keputusan</span>
                             <span className="text-xs truncate">
-                                Laravel Inertia Starter{" "}
+                                K-Nearest Neighbors (KNN){" "}
                             </span>
                         </div>
                     </Link>

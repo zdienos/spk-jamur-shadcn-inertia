@@ -1,39 +1,19 @@
 import {
-    IconBarrierBlock,
-    IconBrowserCheck,
-    IconBug,
-    IconChecklist,
-    IconError404,
     IconHelp,
     IconLayoutDashboard,
-    IconLock,
-    IconLockAccess,
-    IconMessages,
-    IconNotification,
-    IconPackages,
-    IconPalette,
-    IconServerOff,
-    IconSettings,
-    IconTool,
-    IconUserCog,
-    IconUserOff,
     IconUsers,
-    IconChartBar,
-    IconShoppingBag,
-    IconShoppingBagDiscount,
-    IconShoe,
-    IconRobot,
-    IconMail,
-    IconArticle,
-    IconCategory,
-    IconTags,
-    IconEdit,
-    IconTableColumn,
 } from '@tabler/icons-react'
 import {
     AudioWaveform,
+    ClipboardCheckIcon,
     Command,
-    GalleryVerticalEnd
+    DatabaseIcon,
+    GalleryVerticalEnd,
+    HistoryIcon,
+    LayersIcon,
+    ListChecksIcon,
+    ListOrderedIcon,
+    MessageCircleIcon
 } from 'lucide-react'
 import { type SidebarData } from '../types'
 
@@ -76,23 +56,23 @@ export const sidebarData: SidebarData = {
             items: [
                 {
                     title: 'Kriteria',
-                    url: '/master/kriteria',
-                    icon: IconShoppingBag,
+                    url: '/criteria',
+                    icon: ListChecksIcon,
                 },
                 {
                     title: 'Sub Kriteria',
                     url: '/master/sub-kriteria',
-                    icon: IconShoppingBagDiscount,
+                    icon: ListOrderedIcon,
                 },
                 {
                     title: 'Asesmen',
                     url: '/master/asesmen',
-                    icon: IconShoe,
+                    icon: ClipboardCheckIcon,
                 },
                 {
                     title: 'Klasifikasi',
                     url: '/master/klasifikasi',
-                    icon: IconShoe,
+                    icon: LayersIcon,
                 },
             ],
         },
@@ -107,7 +87,7 @@ export const sidebarData: SidebarData = {
                 {
                     title: 'Data Training',
                     url: '/pustaka/data-training',
-                    icon: IconTableColumn,
+                    icon: DatabaseIcon,
                 },
             ],
         },
@@ -117,7 +97,7 @@ export const sidebarData: SidebarData = {
                 {
                     title: 'Konsultasi',
                     url: '/metode/konsultasi',
-                    icon: IconUsers,
+                    icon: MessageCircleIcon,
                 },
             ],
         },
@@ -127,7 +107,7 @@ export const sidebarData: SidebarData = {
                 {
                     title: 'Riwayat Konsultasi',
                     url: '/laporan/riwayat-konsultasi',
-                    icon: IconUsers,
+                    icon: HistoryIcon,
                 },
             ],
         },

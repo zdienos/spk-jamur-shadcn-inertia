@@ -1,258 +1,145 @@
 import {
-  IconBarrierBlock,
-  IconBrowserCheck,
-  IconBug,
-  IconChecklist,
-  IconError404,
-  IconHelp,
-  IconLayoutDashboard,
-  IconLock,
-  IconLockAccess,
-  IconMessages,
-  IconNotification,
-  IconPackages,
-  IconPalette,
-  IconServerOff,
-  IconSettings,
-  IconTool,
-  IconUserCog,
-  IconUserOff,
-  IconUsers,
-  IconChartBar,
-  IconShoppingBag,
-  IconShoppingBagDiscount,
-  IconShoe,
-  IconRobot,
-  IconMail,
-  IconArticle,
-  IconCategory,
-  IconTags,
-  IconEdit,
+    IconBarrierBlock,
+    IconBrowserCheck,
+    IconBug,
+    IconChecklist,
+    IconError404,
+    IconHelp,
+    IconLayoutDashboard,
+    IconLock,
+    IconLockAccess,
+    IconMessages,
+    IconNotification,
+    IconPackages,
+    IconPalette,
+    IconServerOff,
+    IconSettings,
+    IconTool,
+    IconUserCog,
+    IconUserOff,
+    IconUsers,
+    IconChartBar,
+    IconShoppingBag,
+    IconShoppingBagDiscount,
+    IconShoe,
+    IconRobot,
+    IconMail,
+    IconArticle,
+    IconCategory,
+    IconTags,
+    IconEdit,
+    IconTableColumn,
 } from '@tabler/icons-react'
 import {
-  AudioWaveform,
-  Command,
-  GalleryVerticalEnd
+    AudioWaveform,
+    Command,
+    GalleryVerticalEnd
 } from 'lucide-react'
 import { type SidebarData } from '../types'
 
 export const sidebarData: SidebarData = {
-  user: {
-    name: 'binjuhor',
-    email: 'hi@binjuhor.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-  teams: [
-    {
-      name: 'Shadcn Admin',
-      logo: Command,
-      plan: 'Vite + ShadcnUI',
+    user: {
+        name: 'binjuhor',
+        email: 'hi@binjuhor.com',
+        avatar: '/avatars/shadcn.jpg',
     },
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-  ],
-  navGroups: [
-    {
-      title: 'General',
-      items: [
+    teams: [
         {
-          title: 'Dashboard',
-          url: '/dashboard',
-          icon: IconLayoutDashboard,
+            name: 'Shadcn Admin',
+            logo: Command,
+            plan: 'Vite + ShadcnUI',
         },
         {
-          title: 'Tasks',
-          url: '/dashboard/tasks',
-          icon: IconChecklist,
+            name: 'Acme Inc',
+            logo: GalleryVerticalEnd,
+            plan: 'Enterprise',
         },
         {
-          title: 'Mail',
-          url: '/dashboard/mail',
-          icon: IconMail,
+            name: 'Acme Corp.',
+            logo: AudioWaveform,
+            plan: 'Startup',
+        },
+    ],
+    navGroups: [
+        {
+            title: 'General',
+            items: [
+                {
+                    title: 'Dashboard',
+                    url: '/dashboard',
+                    icon: IconLayoutDashboard,
+                },
+            ],
         },
         {
-          title: 'Apps',
-          url: '/dashboard/apps',
-          icon: IconPackages,
+            title: 'Master',
+            items: [
+                {
+                    title: 'Kriteria',
+                    url: '/master/kriteria',
+                    icon: IconShoppingBag,
+                },
+                {
+                    title: 'Sub Kriteria',
+                    url: '/master/sub-kriteria',
+                    icon: IconShoppingBagDiscount,
+                },
+                {
+                    title: 'Asesmen',
+                    url: '/master/asesmen',
+                    icon: IconShoe,
+                },
+                {
+                    title: 'Klasifikasi',
+                    url: '/master/klasifikasi',
+                    icon: IconShoe,
+                },
+            ],
         },
         {
-          title: 'Chats',
-          url: '/dashboard/chats',
-          badge: '3',
-          icon: IconMessages,
+            title: 'Pustaka',
+            items: [
+                {
+                    title: 'Users',
+                    url: '/pustaka/user',
+                    icon: IconUsers,
+                },
+                {
+                    title: 'Data Training',
+                    url: '/pustaka/data-training',
+                    icon: IconTableColumn,
+                },
+            ],
         },
         {
-          title: 'Ai Chats',
-          url: '/dashboard/chat-ai',
-          icon: IconRobot,
+            title: 'Metode',
+            items: [
+                {
+                    title: 'Konsultasi',
+                    url: '/metode/konsultasi',
+                    icon: IconUsers,
+                },
+            ],
         },
         {
-          title: 'Charts',
-          url: '/dashboard/charts',
-          icon: IconChartBar,
+            title: 'Laporan',
+            items: [
+                {
+                    title: 'Riwayat Konsultasi',
+                    url: '/laporan/riwayat-konsultasi',
+                    icon: IconUsers,
+                },
+            ],
         },
         {
-          title: 'Users',
-          url: '/dashboard/users',
-          icon: IconUsers,
+            title: 'Lainnya',
+            items: [
+                {
+                    title: 'Panduan',
+                    url: '/panduan',
+                    icon: IconHelp,
+                },
+            ],
         },
-      ],
-    },
-    {
-      title: 'Ecommerce',
-      items: [
-        {
-          title: 'Orders',
-          url: '/dashboard/orders',
-          icon: IconShoppingBag,
-        },
-        {
-          title: 'Products',
-          url: '/dashboard/products',
-          icon: IconShoppingBagDiscount,
-        },
-        {
-          title: 'Product',
-          url: '/dashboard/products/edit',
-          icon: IconShoe,
-        },
-      ],
-    },
-    {
-      title: 'Blog',
-      items: [
-        {
-          title: 'Posts',
-          url: '/dashboard/blog/posts',
-          icon: IconArticle,
-        },
-        {
-          title: 'Add Post',
-          url: '/dashboard/blog/posts/create',
-          icon: IconEdit,
-        },
-        {
-          title: 'Categories',
-          url: '/dashboard/blog/categories',
-          icon: IconCategory,
-        },
-        {
-          title: 'Tags',
-          url: '/dashboard/blog/tags',
-          icon: IconTags,
-        },
-      ],
-    },
-    {
-      title: 'Pages',
-      items: [
-        {
-          title: 'Auth',
-          icon: IconLockAccess,
-          items: [
-            {
-              title: 'Sign In',
-              url: '/sign-in',
-            },
-            {
-              title: 'Sign In (2 Col)',
-              url: '/sign-in-2',
-            },
-            {
-              title: 'Sign Up',
-              url: '/sign-up',
-            },
-            {
-              title: 'Forgot Password',
-              url: '/forgot-pass',
-            },
-            {
-              title: 'OTP',
-              url: '/otp',
-            },
-          ],
-        },
-        {
-          title: 'Errors',
-          icon: IconBug,
-          items: [
-            {
-              title: 'Unauthorized',
-              url: '/401',
-              icon: IconLock,
-            },
-            {
-              title: 'Forbidden',
-              url: '/403',
-              icon: IconUserOff,
-            },
-            {
-              title: 'Not Found',
-              url: '/404',
-              icon: IconError404,
-            },
-            {
-              title: 'Internal Server Error',
-              url: '/500',
-              icon: IconServerOff,
-            },
-            {
-              title: 'Maintenance Error',
-              url: '/503',
-              icon: IconBarrierBlock,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Other',
-      items: [
-        {
-          title: 'Settings',
-          icon: IconSettings,
-          items: [
-            {
-              title: 'Profile',
-              url: '/dashboard/settings',
-              icon: IconUserCog,
-            },
-            {
-              title: 'Account',
-              url: '/dashboard/settings/account',
-              icon: IconTool,
-            },
-            {
-              title: 'Appearance',
-              url: '/dashboard/settings/appearance',
-              icon: IconPalette,
-            },
-            {
-              title: 'Notifications',
-              url: '/dashboard/settings/notifications',
-              icon: IconNotification,
-            },
-            {
-              title: 'Display',
-              url: '/dashboard/settings/display',
-              icon: IconBrowserCheck,
-            },
-          ],
-        },
-        {
-          title: 'Help Center',
-          url: '/dashboard/help-center',
-          icon: IconHelp,
-        },
-      ],
-    },
-  ],
+    ],
 }

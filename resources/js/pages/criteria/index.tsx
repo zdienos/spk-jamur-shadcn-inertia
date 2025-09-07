@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Pencil, Trash2 } from "lucide-react";
 import { CriteriaPrimaryButton } from "./components/criteria-primary-buttons";
 import { CriteriasDialogs } from "./components/criteria-dialog";
+import BreadcrumbCriteria from "./components/breadcrumbs";
 
 // Definisikan tipe untuk props halaman ini secara spesifik
 interface IndexPageProps extends PageProps {
@@ -41,11 +42,11 @@ export default function Index({ auth, criteria }: IndexPageProps) {
             },
             {
                 accessorKey: 'nama',
-                header: 'Nama Kriteria',
+                header: 'NAMA KRITERIA',
             },
             {
                 id: 'aksi',
-                header: 'Aksi',
+                header: 'AKSI',
                 size: 120,
                 meta: { align: 'text-center' },
                 cell: ({ row }) => {
@@ -83,7 +84,8 @@ export default function Index({ auth, criteria }: IndexPageProps) {
 
         return (
             <Main>
-                <div className='mb-2 flex items-center justify-between space-y-2 flex-wrap'>
+                <BreadcrumbCriteria />
+                <div className='mb-6 flex items-center justify-between space-y-2 flex-wrap'>
                     <div>
                         <h2 className='text-2xl font-bold tracking-tight'>Kriteria</h2>
                         <p className='text-muted-foreground'>

@@ -1,9 +1,13 @@
 'use client'
 
-import { z } from 'zod'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from '@/hooks/use-toast'
+import { Loader2, Save } from 'lucide-react'
+import { z } from 'zod'
+
+import { router } from '@inertiajs/react'
+
 import { Button } from '@/components/ui/button'
 import {
     Dialog,
@@ -23,10 +27,9 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { toast } from '@/hooks/use-toast'
+
 import { Criteria } from '../data/schema'
-import { router } from '@inertiajs/react'
-import { Loader2, Save } from 'lucide-react'
-import { useState } from 'react'
 
 const formSchema = z
     .object({

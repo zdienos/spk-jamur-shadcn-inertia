@@ -13,7 +13,7 @@ class CriteriaController extends Controller
      */
     public function index()
     {
-        return Inertia::render('criteria/index', [
+        return Inertia::render('Criteria/Index', [
             'criteria' => Criteria::latest()->get(),
         ]);
     }

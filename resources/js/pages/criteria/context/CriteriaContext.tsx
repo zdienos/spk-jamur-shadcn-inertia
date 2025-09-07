@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+
 import useDialogState from '@/hooks/use-dialog-state'
+
 import { Criteria } from '../data/schema'
 
 type CriteriasDialogType = 'invite' | 'add' | 'edit' | 'delete'
@@ -28,7 +30,6 @@ export default function CriteriasProvider({ children }: Props) {
     )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useCriterias = () => {
     const criteriasContext = React.useContext(CriteriasContext)
 

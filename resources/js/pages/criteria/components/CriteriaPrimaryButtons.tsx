@@ -1,8 +1,10 @@
 import { IconPlus } from '@tabler/icons-react'
-import { Button } from '@/components/ui/button'
-import { useCriterias } from '../context/criteria-context'
 
-export function CriteriaPrimaryButton() {
+import { Button } from '@/components/ui/button'
+
+import { useCriterias } from '../context/CriteriaContext'
+
+export function CriteriaPrimaryButtons() {
     const { setOpen } = useCriterias()
     return (
         <div className='flex gap-2'>

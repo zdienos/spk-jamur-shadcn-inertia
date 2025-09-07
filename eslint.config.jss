@@ -6,6 +6,7 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 
 export default [
+    // Konfigurasi untuk mengabaikan direktori
     {
         ignores: [
             "bootstrap/",
@@ -18,24 +19,24 @@ export default [
         ],
     },
 
+    // Aturan dasar dari ESLint
     js.configs.recommended,
 
+    // Konfigurasi untuk file TypeScript & React (*.ts, *.tsx)
     {
         files: ["resources/js/**/*.{ts,tsx}"],
         languageOptions: {
+            // Kita hapus bagian 'globals' dari sini
             parser: tsParser,
             parserOptions: {
                 ecmaFeatures: { jsx: true },
                 ecmaVersion: "latest",
                 sourceType: "module",
             },
-            globals: {
-                ...globals.browser,
-                ...globals.es2020,
-
-                // Tambahin manual biar gak error
-                route: "readonly",
-            },
+            // globals: {
+            //     ...globals.browser,
+            //     ...globals.es2020,
+            // },
         },
         plugins: {
             "@typescript-eslint": tsPlugin,
@@ -50,9 +51,16 @@ export default [
                 "error",
                 {
                     groups: [
+                        // 1. Paket yang berhubungan dengan React, selalu di paling atas.
                         ["^react", "^@?\\w"],
+
+                        // 2. Impor dari Inertia.js
                         ["^@inertiajs/react"],
+
+                        // 3. Impor dari alias internal ('@/').
                         ["^@/"],
+
+                        // 4. Impor dari parent folder ('../'), lalu sibling folder ('./').
                         [
                             "^\\.\\.(?!/?$)",
                             "^\\.\\./?$",
@@ -60,6 +68,8 @@ export default [
                             "^\\.(?!/?$)",
                             "^\\./?$",
                         ],
+
+                        // 5. Impor file CSS atau side-effect lainnya.
                         ["^.+\\.?(css)$"],
                     ],
                 },

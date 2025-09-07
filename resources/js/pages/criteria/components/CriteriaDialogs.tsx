@@ -1,7 +1,6 @@
-import { useCriterias } from '../context/criteria-context'
-import { CriteriasActionDialog } from './criterias-action-dialog'
-import { CriteriasDeleteDialog } from './criterias-delete-dialog'
-// import { UsersInviteDialog } from './users-invite-dialog'
+import { useCriterias } from '../context/CriteriaContext'
+import { CriteriasActionDialog } from './CriteriaActionDialog'
+import { CriteriasDeleteDialog } from './CriteriasDeleteDialog'
 
 export function CriteriasDialogs() {
     const { open, setOpen, currentRow, setCurrentRow } = useCriterias()
@@ -22,7 +21,7 @@ export function CriteriasDialogs() {
                             setOpen('edit')
                             setTimeout(() => {
                                 setCurrentRow(null)
-                            }, 500)
+                            }, 300)
                         }}
                         currentRow={currentRow}
                     />
@@ -34,7 +33,7 @@ export function CriteriasDialogs() {
                             setOpen('delete')
                             setTimeout(() => {
                                 setCurrentRow(null)
-                            }, 500)
+                            }, 300)
                         }}
                         currentRow={currentRow}
                     />

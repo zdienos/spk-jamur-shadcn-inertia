@@ -1,21 +1,21 @@
 "use client"
 
 import {
-    useReactTable,
-    getCoreRowModel,
     ColumnDef,
     flexRender,
+    getCoreRowModel,
+    useReactTable,
 } from '@tanstack/react-table'
 
-interface TabelKriteriaProps<TData, TValue> {
+interface CriteriaTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
 }
 
-export function TabelKriteria<TData, TValue>({
+export function CriteriaTable<TData, TValue>({
     columns,
     data,
-}: TabelKriteriaProps<TData, TValue>) {
+}: CriteriaTableProps<TData, TValue>) {
     const table = useReactTable({
         data,
         columns,
@@ -49,7 +49,6 @@ export function TabelKriteria<TData, TValue>({
                                     key={cell.id}
                                     className={`p-2 align-middle border-r border-slate-200 last:border-r-0 ${cell.column.columnDef.meta?.align || 'text-left'
                                         }`}
-
                                 >
                                     {flexRender(
                                         cell.column.columnDef.cell,

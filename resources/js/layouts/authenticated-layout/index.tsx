@@ -1,15 +1,15 @@
+import { Head } from "@inertiajs/react";
+
 import { AppSidebar } from "@/components/layout/app-sidebar"
 import { Header } from '@/components/layout/header'
 import { TopNav } from '@/components/layout/top-nav'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
-
+import { ThemeSwitch } from "@/components/theme-switch"
 import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar"
-import { ThemeSwitch } from "@/components/theme-switch"
-import { Head } from "@inertiajs/react";
 
 
 const topNav = [

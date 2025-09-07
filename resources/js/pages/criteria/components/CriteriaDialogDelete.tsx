@@ -27,14 +27,32 @@ export function CriteriasDeleteDialog({ open, onOpenChange, currentRow }: Props)
         router.delete(route('criteria.destroy', currentRow.id), {
             onStart: () => setIsProcessing(true),
             onFinish: () => setIsProcessing(false),
-            onSuccess: () => {
+            // statis pesan
+            // onSuccess: () => {
+            //     onOpenChange(false)
+            //     toast({
+            //         title: 'Sukses!',
+            //         description: `Kriteria "${currentRow.nama}" telah dihapus.`,
+            //     })
+            // },
+            // ambil dari message
+            onSuccess: (page) => {
                 onOpenChange(false)
                 toast({
                     title: 'Sukses!',
-                    description: `Kriteria "${currentRow.nama}" telah dihapus.`,
+                    description: page.props.flash.message,
                 })
             },
-            onError: () => { toast({ variant: 'destructive', title: 'Error!', description: 'Gagal menghapus kriteria.' }) }
+            // error statis
+            // onError: () => { toast({ variant: 'destructive', title: 'Error!', description: 'Gagal menghapus kriteria.' }) }
+            onError: (errors) => {
+                const firstError = Object.values(errors)[0];
+                toast({
+                    variant: 'destructive',
+                    title: 'Error!',
+                    description: firstError || 'Gagal menghapus kriteria.'
+                })
+            }
         })
     }
 

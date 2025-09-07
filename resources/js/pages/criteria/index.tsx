@@ -3,7 +3,7 @@ import { AuthenticatedLayout } from "@/layouts"
 import { Criteria, PageProps } from '@/types';
 
 import BreadcrumbCriteria from "./components/Breadcrumb";
-import { CriteriasDialogs } from "./components/CriteriaDialogs";
+import { CriteriasDialogs } from "./components/CriteriaDialog";
 import { CriteriaPrimaryButtons } from "./components/CriteriaPrimaryButtons";
 import { CriteriaTable } from "./components/CriteriaTable";
 import { useCriteriaColumns } from "./components/useCriteriaColumns";
@@ -14,9 +14,9 @@ interface IndexPageProps extends PageProps {
     criteria: Criteria[];
 }
 
-// 1. Buat komponen konten sebagai fungsi terpisah DI LUAR komponen utama
+// Buat komponen konten sebagai fungsi terpisah DI LUAR komponen utama
 function CriteriaPageContent({ criteria }: { criteria: Criteria[] }) {
-    // 2. Panggil hook di level atas komponen ini
+    // Panggil hook di level atas komponen ini
     const columns = useCriteriaColumns();
     const criteriaList = criteriaListSchema.parse(criteria);
 

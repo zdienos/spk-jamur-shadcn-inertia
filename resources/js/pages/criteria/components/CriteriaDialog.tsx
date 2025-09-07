@@ -1,6 +1,6 @@
 import { useCriterias } from '../context/CriteriaContext'
-import { CriteriasActionDialog } from './CriteriaActionDialog'
-import { CriteriasDeleteDialog } from './CriteriasDeleteDialog'
+import { CriteriasActionDialog } from './CriteriaDialogAction'
+import { CriteriasDeleteDialog } from './CriteriaDialogDelete'
 
 export function CriteriasDialogs() {
     const { open, setOpen, currentRow, setCurrentRow } = useCriterias()

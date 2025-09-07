@@ -21,10 +21,7 @@ class CriteriaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return Inertia::render('criteria/create');
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +49,7 @@ class CriteriaController extends Controller
     public function edit(Criteria $criterion)
     {
         return Inertia::render('criteria/edit', [
-            'criterion' => $criterion
+            'criteria' => $criterion
         ]);
     }
 
@@ -61,7 +58,7 @@ class CriteriaController extends Controller
      */
     public function update(Request $request, Criteria $criterion)
     {
-        $request->validate(['nama' => 'required|string|max:255']);
+        $request->validate(['nama' => 'required|string|max:25']);
 
         $criterion->update(['nama' => $request->nama]);
 
@@ -75,6 +72,6 @@ class CriteriaController extends Controller
     {
         $criterion->delete();
 
-        return redirect()->route('criteria.index')->with('message', 'Kriteria berhasil dihapus.');
+        return redirect()->route('criteria.index')->with('message', 'Kriteria ' . $criterion->nama . '  berhasil dihapus.');
     }
 }

@@ -44,7 +44,7 @@ interface Props {
     onOpenChange: (open: boolean) => void
 }
 
-export function CriteriasActionDialog({ currentRow, open, onOpenChange }: Props) {
+export function CriteriaDialogAction({ currentRow, open, onOpenChange }: Props) {
     const isEdit = !!currentRow
     const form = useForm<CriteriaForm>({
         resolver: zodResolver(formSchema),

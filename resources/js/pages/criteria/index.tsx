@@ -1,11 +1,11 @@
 import { Main } from "@/components/layout";
+import { SimpleTanStackTable } from "@/components/SimpleTanStackTable";
 import { AuthenticatedLayout } from "@/layouts"
 import { Criteria, PageProps } from '@/types';
 
 import BreadcrumbCriteria from "./components/Breadcrumb";
-import { CriteriasDialogs } from "./components/CriteriaDialog";
-import { CriteriaPrimaryButtons } from "./components/CriteriaPrimaryButtons";
-import { CriteriaTable } from "./components/CriteriaTable";
+import { CriteriaDialog } from "./components/CriteriaDialog";
+import { CriteriaPrimaryButton } from "./components/CriteriaPrimaryButton";
 import { useCriteriaColumns } from "./components/useCriteriaColumns";
 import CriteriasProvider from "./context/CriteriaContext";
 import { criteriaListSchema } from "./data/schema";
@@ -30,13 +30,13 @@ function CriteriaPageContent({ criteria }: { criteria: Criteria[] }) {
                         Daftar kriteria yang tersedia di sistem.
                     </p>
                 </div>
-                <CriteriaPrimaryButtons />
+                <CriteriaPrimaryButton />
             </div>
             <div className='-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-x-12 lg:space-y-0'>
                 {/* 3. Gunakan variabel 'columns' di sini */}
-                <CriteriaTable data={criteriaList} columns={columns} />
+                <SimpleTanStackTable data={criteriaList} columns={columns} />
             </div>
-            <CriteriasDialogs />
+            <CriteriaDialog />
         </Main>
     )
 }

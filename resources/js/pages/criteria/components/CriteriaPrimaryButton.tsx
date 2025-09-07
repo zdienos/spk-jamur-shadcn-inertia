@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 import { useCriterias } from '../context/CriteriaContext'
 
-export function CriteriaPrimaryButtons() {
+export function CriteriaPrimaryButton() {
     const { setOpen } = useCriterias()
     return (
         <div className='flex gap-2'>

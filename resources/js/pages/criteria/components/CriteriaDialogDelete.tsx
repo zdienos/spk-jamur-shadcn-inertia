@@ -18,7 +18,7 @@ interface Props {
     currentRow: Criteria
 }
 
-export function CriteriasDeleteDialog({ open, onOpenChange, currentRow }: Props) {
+export function CriteriaDialogDelete({ open, onOpenChange, currentRow }: Props) {
     // const [value, setValue] = useState('')
     const [isProcessing, setIsProcessing] = useState(false)
 

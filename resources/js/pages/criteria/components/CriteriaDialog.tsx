@@ -1,12 +1,12 @@
 import { useCriterias } from '../context/CriteriaContext'
-import { CriteriasActionDialog } from './CriteriaDialogAction'
-import { CriteriasDeleteDialog } from './CriteriaDialogDelete'
+import { CriteriaDialogAction } from './CriteriaDialogAction'
+import { CriteriaDialogDelete } from './CriteriaDialogDelete'
 
-export function CriteriasDialogs() {
+export function CriteriaDialog() {
     const { open, setOpen, currentRow, setCurrentRow } = useCriterias()
     return (
         <>
-            <CriteriasActionDialog
+            <CriteriaDialogAction
                 key='criteria-add'
                 open={open === 'add'}
                 onOpenChange={() => setOpen('add')}
@@ -14,7 +14,7 @@ export function CriteriasDialogs() {
 
             {currentRow && (
                 <>
-                    <CriteriasActionDialog
+                    <CriteriaDialogAction
                         key={`critria-edit-${currentRow.id}`}
                         open={open === 'edit'}
                         onOpenChange={() => {
@@ -26,7 +26,7 @@ export function CriteriasDialogs() {
                         currentRow={currentRow}
                     />
 
-                    <CriteriasDeleteDialog
+                    <CriteriaDialogDelete
                         key={`criteria-delete-${currentRow.id}`}
                         open={open === 'delete'}
                         onOpenChange={() => {

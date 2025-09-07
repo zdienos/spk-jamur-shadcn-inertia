@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\SubCriteriaController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -22,9 +23,14 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', 'verified']], f
     require __DIR__ . '/dashboard.php';
 });
 
-// Tambahkan baris ini untuk CRUD Kriteria
-Route::resource('criteria', CriteriaController::class)
-    ->middleware(['auth', 'verified']); // Pastikan hanya user terotentikasi yang bisa akses
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('criteria', CriteriaController::class);
+    // Route::resource('zed', SubCriteriaController::class)->shallow();
+    Route::resource('subcriteria', SubCriteriaController::class);
+    // Route::get('/subcriteria/test', [SubCriteriaController::class, 'testPage'])->name('subcriteria.test');
+});
 
 
 require __DIR__ . '/auth.php';

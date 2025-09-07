@@ -15,6 +15,7 @@ import {
     ListOrderedIcon,
     MessageCircleIcon
 } from 'lucide-react'
+
 import { type SidebarData } from '../types'
 
 export const sidebarData: SidebarData = {
@@ -61,7 +62,7 @@ export const sidebarData: SidebarData = {
                 },
                 {
                     title: 'Sub Kriteria',
-                    url: '/master/sub-kriteria',
+                    url: '/subcriteria',
                     icon: ListOrderedIcon,
                 },
                 {

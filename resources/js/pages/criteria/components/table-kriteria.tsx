@@ -1,41 +1,37 @@
 "use client"
 
-import React from 'react'
 import {
     useReactTable,
     getCoreRowModel,
-    ColumnDef, // Impor ColumnDef
+    ColumnDef,
     flexRender,
 } from '@tanstack/react-table'
 
-// 1. Definisikan tipe untuk props komponen
-// Ini membuat komponen kita generik dan bisa menerima data apa saja
 interface TabelKriteriaProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
 }
 
-// 2. Gunakan Tipe Generik di sini
 export function TabelKriteria<TData, TValue>({
     columns,
     data,
 }: TabelKriteriaProps<TData, TValue>) {
-    // 3. Gunakan 'data' dan 'columns' yang diterima dari props
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
     })
 
-    // Bagian JSX untuk rendering tidak berubah sama sekali
     return (
         <div className="rounded-md border">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm table-responsive">
                 <thead className="[&_tr]:border-b">
                     {table.getHeaderGroups().map(headerGroup => (
                         <tr key={headerGroup.id} className="border-b transition-colors hover:bg-muted/50">
                             {headerGroup.headers.map(header => (
-                                <th key={header.id} className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">
+                                <th key={header.id} className="h-12 p-4 text-center align-middle font-medium text-muted-foreground border-r border-slate-200 last:border-r-0" style={{
+                                    width: header.getSize(),
+                                }}>
                                     {flexRender(
                                         header.column.columnDef.header,
                                         header.getContext()
@@ -49,7 +45,12 @@ export function TabelKriteria<TData, TValue>({
                     {table.getRowModel().rows.map(row => (
                         <tr key={row.id} className="border-b transition-colors hover:bg-muted/50">
                             {row.getVisibleCells().map(cell => (
-                                <td key={cell.id} className="p-4 align-middle">
+                                <td
+                                    key={cell.id}
+                                    className={`p-2 align-middle border-r border-slate-200 last:border-r-0 ${cell.column.columnDef.meta?.align || 'text-left'
+                                        }`}
+
+                                >
                                     {flexRender(
                                         cell.column.columnDef.cell,
                                         cell.getContext()

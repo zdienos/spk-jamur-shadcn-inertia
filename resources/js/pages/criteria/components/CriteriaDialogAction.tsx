@@ -33,7 +33,7 @@ import { Criteria } from '../data/schema'
 
 const formSchema = z
     .object({
-        nama: z.string().min(1, { message: 'Nama kriteria wajib.' }),
+        name: z.string().min(1, { message: 'Nama kriteria wajib.' }),
         isEdit: z.boolean(),
     })
 type CriteriaForm = z.infer<typeof formSchema>
@@ -54,7 +54,7 @@ export function CriteriasActionDialog({ currentRow, open, onOpenChange }: Props)
                 isEdit,
             }
             : {
-                nama: '',
+                name: '',
                 isEdit,
             },
     })
@@ -118,7 +118,7 @@ export function CriteriasActionDialog({ currentRow, open, onOpenChange }: Props)
                     <DialogTitle>{isEdit ? 'Edit Kriteria' : 'Tambah Kriteria'}</DialogTitle>
                     <DialogDescription>
                         {isEdit ? 'Mengupdate Kriteria. ' : 'Menambah Kriteria. '}
-                        Click save when you&apos;re done.
+                        Klik simpan jika sudah selesai.
                     </DialogDescription>
                 </DialogHeader>
                 <ScrollArea className='h-[4rem] w-full pr-4 -mr-4 py-1 mt-2'>
@@ -130,7 +130,7 @@ export function CriteriasActionDialog({ currentRow, open, onOpenChange }: Props)
                         >
                             <FormField
                                 control={form.control}
-                                name='nama'
+                                name='name'
                                 render={({ field }) => (
                                     <FormItem className='grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0'>
                                         <FormLabel className='col-span-2 text-left'>

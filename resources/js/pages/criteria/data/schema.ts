@@ -17,7 +17,7 @@ import { z } from 'zod'
 
 const criteriaSchema = z.object({
     id: z.number(),
-    nama: z.string(),
+    name: z.string(),
 })
 
 export type Criteria = z.infer<typeof criteriaSchema>

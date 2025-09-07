@@ -42,22 +42,33 @@ export function CriteriaTable<TData, TValue>({
                     ))}
                 </thead>
                 <tbody className="[&_tr:last-child]:border-0">
-                    {table.getRowModel().rows.map(row => (
-                        <tr key={row.id} className="border-b transition-colors hover:bg-muted/50">
-                            {row.getVisibleCells().map(cell => (
-                                <td
-                                    key={cell.id}
-                                    className={`p-2 align-middle border-r border-slate-200 last:border-r-0 ${cell.column.columnDef.meta?.align || 'text-left'
-                                        }`}
-                                >
-                                    {flexRender(
-                                        cell.column.columnDef.cell,
-                                        cell.getContext()
-                                    )}
-                                </td>
-                            ))}
+                    {table.getRowModel().rows?.length ? (
+                        table.getRowModel().rows.map(row => (
+                            <tr key={row.id} className="border-b transition-colors hover:bg-muted/50">
+                                {row.getVisibleCells().map(cell => (
+                                    <td
+                                        key={cell.id}
+                                        className={`p-2 align-middle border-r border-slate-200 last:border-r-0 ${cell.column.columnDef.meta?.align || 'text-left'
+                                            }`}
+                                    >
+                                        {flexRender(
+                                            cell.column.columnDef.cell,
+                                            cell.getContext()
+                                        )}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td
+                                colSpan={columns.length}
+                                className="h-24 text-center text-muted-foreground"
+                            >
+                                Belum ada data.
+                            </td>
                         </tr>
-                    ))}
+                    )}
                 </tbody>
             </table>
         </div>

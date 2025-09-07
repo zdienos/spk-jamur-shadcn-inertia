@@ -1,22 +1,32 @@
-import React, { useState } from 'react'
+import {
+    createContext,
+    type Dispatch,
+    type ReactNode,
+    type SetStateAction,
+    useContext,
+    useState
+} from 'react'
 
 import useDialogState from '@/hooks/use-dialog-state'
 
 import { Criteria } from '../data/schema'
 
-type CriteriasDialogType = 'invite' | 'add' | 'edit' | 'delete'
+type CriteriasDialogType = 'add' | 'edit' | 'delete'
 
 interface CriteriasContextType {
     open: CriteriasDialogType | null
     setOpen: (str: CriteriasDialogType | null) => void
     currentRow: Criteria | null
-    setCurrentRow: React.Dispatch<React.SetStateAction<Criteria | null>>
+    // Hilangkan prefix 'React.'
+    setCurrentRow: Dispatch<SetStateAction<Criteria | null>>
 }
 
-const CriteriasContext = React.createContext<CriteriasContextType | null>(null)
+// Panggil 'createContext' secara langsung
+const CriteriasContext = createContext<CriteriasContextType | null>(null)
 
 interface Props {
-    children: React.ReactNode
+    // Hilangkan prefix 'React.'
+    children: ReactNode
 }
 
 export default function CriteriasProvider({ children }: Props) {
@@ -31,7 +41,7 @@ export default function CriteriasProvider({ children }: Props) {
 }
 
 export const useCriterias = () => {
-    const criteriasContext = React.useContext(CriteriasContext)
+    const criteriasContext = useContext(CriteriasContext)
 
     if (!criteriasContext) {
         throw new Error('useCriteria has to be used within <CriteriaContext>')

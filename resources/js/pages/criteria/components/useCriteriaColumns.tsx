@@ -22,7 +22,7 @@ export function useCriteriaColumns(): ColumnDef<Criteria>[] {
             meta: { align: 'text-center' },
         },
         {
-            accessorKey: 'nama',
+            accessorKey: 'name',
             header: 'NAMA KRITERIA',
         },
         {

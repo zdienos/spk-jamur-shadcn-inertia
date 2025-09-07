@@ -28,7 +28,7 @@ class CriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['nama' => 'required|string|max:25']);
+        $request->validate(['name' => 'required|string|max:25']);
 
         Criteria::create($request->all());
 
@@ -58,9 +58,9 @@ class CriteriaController extends Controller
      */
     public function update(Request $request, Criteria $criterion)
     {
-        $request->validate(['nama' => 'required|string|max:25']);
+        $request->validate(['name' => 'required|string|max:25']);
 
-        $criterion->update(['nama' => $request->nama]);
+        $criterion->update(['name' => $request->name]);
 
         return redirect()->route('criteria.index')->with('message', 'Kriteria berhasil diupdate.');
     }
@@ -72,6 +72,6 @@ class CriteriaController extends Controller
     {
         $criterion->delete();
 
-        return redirect()->route('criteria.index')->with('message', 'Kriteria ' . $criterion->nama . '  berhasil dihapus.');
+        return redirect()->route('criteria.index')->with('message', 'Kriteria ' . $criterion->name . '  berhasil dihapus.');
     }
 }

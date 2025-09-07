@@ -14,6 +14,6 @@ class Criteria extends Model
 
     // Tentukan kolom yang boleh diisi secara massal
     protected $fillable = [
-        'nama',
+        'name',
     ];
 }

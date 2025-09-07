@@ -92,7 +92,7 @@ export function CriteriasDeleteDialog({ open, onOpenChange, currentRow }: Props)
                 <div className='space-y-4'>
                     <p className='mb-2'>
                         Anda yakin mau mengapus kriteria{' '}
-                        <span className='font-bold'>{currentRow.nama}</span>?
+                        <span className='font-bold'>{currentRow.name}</span>?
                         <br />
                         {/* This action will permanently remove the user with the role of{' '} */}
                         {/* <span className='font-bold'>

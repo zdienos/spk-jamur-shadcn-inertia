@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassificationController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\SubCriteriaController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,8 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', 'verified']], f
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('criteria', CriteriaController::class);
-    // Route::resource('zed', SubCriteriaController::class)->shallow();
     Route::resource('subcriteria', SubCriteriaController::class);
-    // Route::get('/subcriteria/test', [SubCriteriaController::class, 'testPage'])->name('subcriteria.test');
+    Route::resource('classification', ClassificationController::class);
 });
 
 

@@ -5,12 +5,6 @@ export interface User {
     email_verified_at?: string;
 }
 
-export interface Criteria {
-    id: number;
-    nama: string;
-    created_at?: string; // Opsional jika tidak selalu digunakan
-    updated_at?: string; // Opsional
-}
 
 export type PageProps<
     T extends Record<string, unknown> = Record<string, unknown>,

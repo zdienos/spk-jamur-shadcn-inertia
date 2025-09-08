@@ -72,7 +72,7 @@ export const sidebarData: SidebarData = {
                 },
                 {
                     title: 'Klasifikasi',
-                    url: '/master/klasifikasi',
+                    url: '/classification',
                     icon: LayersIcon,
                 },
             ],

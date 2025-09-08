@@ -48,7 +48,7 @@ export function SimpleTanStackTable<TData, TValue>({
                                 {row.getVisibleCells().map(cell => (
                                     <td
                                         key={cell.id}
-                                        className={`p-2 align-middle border-r border-slate-200 last:border-r-0 ${cell.column.columnDef.meta?.align || 'text-left'
+                                        className={`py-1 px-2 align-middle border-r border-slate-200 last:border-r-0 ${cell.column.columnDef.meta?.align || 'text-left'
                                             }`}
                                     >
                                         {flexRender(

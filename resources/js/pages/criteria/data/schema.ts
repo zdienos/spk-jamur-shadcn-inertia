@@ -21,5 +21,6 @@ const criteriaSchema = z.object({
 })
 
 export type Criteria = z.infer<typeof criteriaSchema>
+export type criteriaType = z.infer<typeof criteriaSchema>
 
 export const criteriaListSchema = z.array(criteriaSchema)

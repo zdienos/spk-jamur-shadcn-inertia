@@ -1,0 +1,71 @@
+"use client"
+
+import { ColumnDef } from '@tanstack/react-table'
+import { Pencil, Trash2 } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+
+import { useClassification } from '../context/Context'
+import { classificationType } from '../data/schema'
+
+// Nama hook harus diawali dengan 'use'
+export function useClassificationColumns(): ColumnDef<classificationType>[] {
+    // Panggil hook di dalam custom hook. INI VALID.
+    const { setOpen, setCurrentRow } = useClassification();
+
+    // Definisikan kolom di dalam hook
+    const columns: ColumnDef<classificationType>[] = [
+        {
+            accessorKey: 'id',
+            header: 'ID',
+            size: 20,
+            meta: { align: 'text-center' },
+        },
+        {
+            accessorKey: 'name',
+            header: 'NAMA KLASIFIKASI',
+        },
+        {
+            accessorKey: 'description',
+            header: 'DESKRIPSI',
+        },
+        {
+            id: 'aksi',
+            header: 'AKSI',
+            size: 40,
+            meta: { align: 'text-center' },
+            cell: ({ row }) => {
+                const kriteria = row.original; //data row ini
+                return (
+                    <div className="flex items-center justify-center space-x-2">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex items-center gap-2"
+                            onClick={() => {
+                                setCurrentRow(kriteria);
+                                setOpen('edit');
+                            }}
+                        >
+                            <Pencil className="h-4 w-4" />
+                        </Button>
+                        <Button
+                            variant="destructive"
+                            size="sm"
+                            className="flex items-center gap-2"
+                            onClick={() => {
+                                setCurrentRow(kriteria);
+                                setOpen('delete');
+                            }}
+                        >
+                            <Trash2 className="h-4 w-4" />
+                        </Button>
+                    </div>
+                );
+            },
+        },
+    ];
+
+    // 3. Kembalikan array kolomnya
+    return columns;
+}

@@ -1,21 +1,21 @@
 import { Main } from "@/components/layout";
 import { SimpleTanStackTable } from "@/components/SimpleTanStackTable";
 import { AuthenticatedLayout } from "@/layouts"
-import { Criteria, PageProps } from '@/types';
+import { PageProps } from '@/types';
 
 import BreadcrumbCriteria from "./components/Breadcrumb";
 import { CriteriaDialog } from "./components/CriteriaDialog";
 import { CriteriaPrimaryButton } from "./components/CriteriaPrimaryButton";
 import { useCriteriaColumns } from "./components/useCriteriaColumns";
 import CriteriasProvider from "./context/CriteriaContext";
-import { criteriaListSchema } from "./data/schema";
+import { criteriaListSchema, criteriaType } from "./data/schema";
 
 interface IndexPageProps extends PageProps {
-    criteria: Criteria[];
+    criteria: criteriaType[];
 }
 
 // Buat komponen konten sebagai fungsi terpisah DI LUAR komponen utama
-function CriteriaPageContent({ criteria }: { criteria: Criteria[] }) {
+function CriteriaPageContent({ criteria }: { criteria: criteriaType[] }) {
     // Panggil hook di level atas komponen ini
     const columns = useCriteriaColumns();
     const criteriaList = criteriaListSchema.parse(criteria);
